@@ -2,9 +2,9 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Profile = lazy(() => import("./pages/Profile"));
+const Generator = lazy(() => import("./pages/Generator"));
 const History = lazy(() => import("./pages/History"));
+const Docs = lazy(() => import("./pages/Docs"));
 
 const Loader = () => (
   <div style={{ textAlign: "center", marginTop: "50px" }}>Loading...</div>
@@ -16,9 +16,9 @@ const App = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/generator" element={<Generator />} />
           <Route path="/history" element={<History />} />
+          <Route path="/docs" element={<Docs />} />
         </Routes>
       </Suspense>
     </div>
