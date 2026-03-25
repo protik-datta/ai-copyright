@@ -121,7 +121,7 @@ const Subscription = () => {
                   <li key={index} className="flex items-center gap-3">
                     {/* Check / Cross Icon */}
                     <span
-                      className={`w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full
+                      className={`w-5 h-5 shrink-0 flex items-center justify-center rounded-full
                     ${
                       feature.included
                         ? plan.highlighted

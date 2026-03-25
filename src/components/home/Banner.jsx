@@ -24,10 +24,10 @@ const Banner = () => {
 
         {/* buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-10">
-          <button className="w-full sm:w-auto px-8 py-3.5 bg-[#5044E5] text-white rounded-[8px] text-[15px] font-medium transition-colors duration-300 hover:bg-[#4338ca] cursor-pointer shadow-lg shadow-indigo-500/30">
+          <button className="w-full sm:w-auto px-8 py-3.5 bg-[#5044E5] text-white rounded-lg text-[15px] font-medium transition-colors duration-300 hover:bg-[#4338ca] cursor-pointer shadow-lg shadow-indigo-500/30">
             Get Started
           </button>
-          <button className="w-full sm:w-auto px-8 py-3.5 bg-white text-black rounded-[8px] text-[15px] font-medium transition-all duration-300 border border-gray-300 hover:border-black hover:bg-gray-50 cursor-pointer shadow-sm">
+          <button className="w-full sm:w-auto px-8 py-3.5 bg-white text-black rounded-lg text-[15px] font-medium transition-all duration-300 border border-gray-300 hover:border-black hover:bg-gray-50 cursor-pointer shadow-sm">
             Watch Demo
           </button>
         </div>
