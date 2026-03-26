@@ -19,7 +19,7 @@ const History = () => {
     setHistory(stored);
   }, []);
 
-  // search filter — return আছে
+  // search filter
   const filtered = history.filter((item) => {
     const promptText = item.prompt ? item.prompt.toLowerCase() : "";
     const resultText = item.result ? item.result.toLowerCase() : "";
@@ -89,7 +89,7 @@ const History = () => {
 
         <Container>
           <div className="py-12 md:py-16">
-            {/* Toolbar — শুধু search + count + clear all */}
+            {/* Toolbar — search + count + clear all */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-between mb-8">
               <div className="relative flex-1 max-w-full sm:max-w-sm">
                 <Search
