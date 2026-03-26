@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import { ToastProvider } from "../utils/Toaster";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Generator = lazy(() => import("./pages/Generator"));
@@ -12,16 +13,18 @@ const Loader = () => (
 
 const App = () => {
   return (
-    <div>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/generator" element={<Generator />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/docs" element={<Docs />} />
-        </Routes>
-      </Suspense>
-    </div>
+    <ToastProvider>
+      <div>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/generator" element={<Generator />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/docs" element={<Docs />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </ToastProvider>
   );
 };
 

@@ -7,9 +7,8 @@ import Container from "./Container";
 const navLinks = [
   { id: 1, title: "Home", path: "/" },
   { id: 2, title: "Generator", path: "/generator" },
-  { id: 3, title: "Profile", path: "/profile" },
-  { id: 4, title: "History", path: "/history" },
-  { id: 5, title: "Docs", path: "/docs" },
+  { id: 3, title: "History", path: "/history" },
+  { id: 4, title: "Docs", path: "/docs" },
 ];
 
 const Navbar = () => {

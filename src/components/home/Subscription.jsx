@@ -1,7 +1,9 @@
 import React from "react";
 import Container from "../common/Container";
+import { Toaster } from "../../../utils/Toaster";
 
 const Subscription = () => {
+  const toast = Toaster()
   const subscriptionPlans = [
     {
       id: 1,
@@ -179,6 +181,12 @@ const Subscription = () => {
 
               {/* Button */}
               <button
+                onClick={() =>
+                  toast({
+                    message: "Subscription is not available right now",
+                    type: "info",
+                  })
+                }
                 className={`mt-8 w-full py-3 rounded-lg text-[14px] font-medium
               transition-all duration-200 active:scale-95
               ${
