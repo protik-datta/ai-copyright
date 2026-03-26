@@ -4,7 +4,7 @@ import Footer from "../components/common/Footer";
 import Container from "../components/common/Container";
 import { Toaster } from "../../utils/Toaster";
 import { Clock, Search, Trash2, FileText, Copy } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const History = () => {
   const [history, setHistory] = useState([]);
@@ -20,11 +20,13 @@ const History = () => {
   }, []);
 
   // search filter — return আছে
-  const filtered = history.filter(
-    (item) =>
-      item.prompt.toLowerCase().includes(search.toLowerCase()) ||
-      item.result.toLowerCase().includes(search.toLowerCase()),
-  );
+  const filtered = history.filter((item) => {
+    const promptText = item.prompt ? item.prompt.toLowerCase() : "";
+    const resultText = item.result ? item.result.toLowerCase() : "";
+    const searchTerm = search.toLowerCase();
+
+    return promptText.includes(searchTerm) || resultText.includes(searchTerm);
+  });
 
   // single item delete
   const handleDelete = (id) => {

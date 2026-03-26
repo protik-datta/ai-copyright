@@ -21,52 +21,49 @@ const useGemini = () => {
     return DAILY_LIMIT - usage.count;
   });
 
-  const generate = async (prompt, userTopic) => {
-    // daily limit check
+  const generate = async (fullPrompt, userTopic) => {
     const usage = getUsage();
     if (usage.count >= DAILY_LIMIT) {
-      setError("আজকের limit শেষ! কাল আবার try করো।");
-      toast({ message: "আজকের limit শেষ! কাল আবার try করো।", type: "error" });
+      const msg = "Today's limit is over! Try again tomorrow.";
+      setError(msg);
+      toast({ message: msg, type: "error" });
       return;
     }
 
     setLoading(true);
     setError("");
-    setResult("");
 
     try {
       const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
       const model = genAI.getGenerativeModel({
         model: "gemini-3-flash-preview",
       });
-      const response = await model.generateContent(prompt);
+
+      const response = await model.generateContent(fullPrompt);
       const text = response.response.text();
 
       let parsed;
       try {
-        const cleaned = text.replace(/```json|```/g, "").trim();
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        const cleaned = jsonMatch ? jsonMatch[0] : text;
         parsed = JSON.parse(cleaned);
-      } catch {
+      } catch (parseErr) {
         parsed = { error: false, result: text };
       }
 
       if (parsed.error) {
-        setError(
+        const errorMsg =
           parsed.message ||
-            "Invalid request. Please enter a valid product or service.",
-        );
-
-        toast({
-          message: `${parsed.message} || Invalid request. Please enter a valid product or service.`,
-        });
-
+          "Invalid input. Please provide valid product details.";
+        setError(errorMsg);
+        toast({ message: errorMsg, type: "error" });
         return;
       }
 
-      // success — result set
+      // success logic
       setResult(parsed.result);
 
-      // count increase
+      // use limit update
       const newCount = usage.count + 1;
       localStorage.setItem(
         "copyai_usage",
@@ -78,11 +75,20 @@ const useGemini = () => {
       const history = JSON.parse(
         localStorage.getItem("copyai_history") || "[]",
       );
-      history.unshift({ id: Date.now(), prompt: userTopic || prompt, result: parsed.result });
-      localStorage.setItem("copyai_history", JSON.stringify(history));
+      history.unshift({
+        id: Date.now(),
+        topic: userTopic,
+        result: parsed.result,
+        date: new Date().toLocaleTimeString(),
+      });
+      localStorage.setItem(
+        "copyai_history",
+        JSON.stringify(history.slice(0, 20)),
+      );
     } catch (err) {
-      console.error("Gemini Error:", err);
-      setError("Something went wrong. Please try again.");
+      const errMsg = "Server issue! Please try again in a few moments.";
+      setError(errMsg);
+      toast({ message: errMsg, type: "error" });
     } finally {
       setLoading(false);
     }

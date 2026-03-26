@@ -7,12 +7,12 @@ import GeneratorForm from '../components/generator/GeneratorForm';
 import GeneratorOutput from '../components/generator/GeneratorOutput';
 import useGemini from '../hooks/useGemini';
 import { Toaster } from '../../utils/Toaster';
+import InstructionNote from '../components/generator/InstructionNote';
 
 const Generator = () => {
   const { result, loading, error, generate } = useGemini();
   const toast = Toaster();
 
-  // Create references to track previous states so we don't spam toasts
   const prevLoading = useRef(loading);
   const prevError = useRef(error);
 
@@ -52,6 +52,8 @@ const Generator = () => {
               <GeneratorOutput result={result} error={error} loading={loading} />
             </div>
           </div>
+
+          <InstructionNote/>
         </Container>
       </main>
 

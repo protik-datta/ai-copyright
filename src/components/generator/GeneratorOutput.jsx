@@ -7,10 +7,16 @@ const GeneratorOutput = ({ result, error, loading }) => {
   const toast = Toaster();
   const [copied, setCopied] = useState(false);
 
+  const cleanMarkdown = (text) => {
+    if (!text) return "";
+    return text.replace(/[#]/g, "").trim();
+  };
+
   const handleCopy = () => {
     if (!result) return;
+    const textToCopy = cleanMarkdown(result);
     navigator.clipboard
-      .writeText(result)
+      .writeText(textToCopy)
       .then(
         () =>
           toast({ message: "Content copied to clipboard!", type: "success" }),
@@ -56,7 +62,7 @@ const GeneratorOutput = ({ result, error, loading }) => {
             </div>
           ) : result ? (
             <div className="prose prose-purple max-w-none text-[14.5px] sm:text-[15.5px] leading-[1.7] text-gray-800 whitespace-pre-wrap">
-              {result}
+              {cleanMarkdown(result)}
             </div>
           ) : (
             <div className="h-full flex flex-col items-center justify-center text-center text-gray-400 gap-3 sm:gap-4">
