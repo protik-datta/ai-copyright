@@ -78,8 +78,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='text-center py-6 border-t border-gray-200 text-[14px] text-gray-500'>
-        Copyright {new Date().getFullYear()} © Quickai. All Right Reserved. Developed By Protik
+      <div className="text-center py-6 border-t border-gray-200 text-[14px] text-gray-500">
+        Copyright {new Date().getFullYear()} © Quickai. All Right Reserved.
+        Developed By <a href="https://www.facebook.com/prot1k.404" target='_blank'>Protik Datta</a>
       </div>
     </footer>
   );

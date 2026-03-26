@@ -21,7 +21,7 @@ const useGemini = () => {
     return DAILY_LIMIT - usage.count;
   });
 
-  const generate = async (prompt) => {
+  const generate = async (prompt, userTopic) => {
     // daily limit check
     const usage = getUsage();
     if (usage.count >= DAILY_LIMIT) {
@@ -78,7 +78,7 @@ const useGemini = () => {
       const history = JSON.parse(
         localStorage.getItem("copyai_history") || "[]",
       );
-      history.unshift({ id: Date.now(), prompt, result: parsed.result });
+      history.unshift({ id: Date.now(), prompt: userTopic || prompt, result: parsed.result });
       localStorage.setItem("copyai_history", JSON.stringify(history));
     } catch (err) {
       console.error("Gemini Error:", err);

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback } from "react";
-import ToastIcons from '../src/lib/ToastIcons';
+import ToastIcons from '../src/lib/ToastIcon';
 
 const ToastContext = createContext(null);
 

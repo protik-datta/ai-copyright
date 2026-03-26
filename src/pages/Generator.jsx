@@ -42,12 +42,12 @@ const Generator = () => {
 
         <Container>
           <div className="py-12 md:py-16 flex flex-col lg:flex-row gap-8 lg:gap-10 items-stretch">
-            {/* Left side: Settings & Prompt Form */}
+            {/* Settings & Prompt Form */}
             <div className="w-full lg:w-5/12 xl:w-1/3 flex">
               <GeneratorForm loading={loading} generate={generate} />
             </div>
 
-            {/* Right side: AI Generated Output */}
+            {/* AI Generated Output */}
             <div className="w-full lg:w-7/12 xl:w-2/3 flex">
               <GeneratorOutput result={result} error={error} loading={loading} />
             </div>

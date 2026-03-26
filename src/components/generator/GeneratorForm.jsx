@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles } from "lucide-react";
+import Container from '../common/Container';
 
 const GeneratorForm = ({ loading, generate }) => {
   const [prompt, setPrompt] = useState("");
@@ -36,11 +37,11 @@ const GeneratorForm = ({ loading, generate }) => {
     Keep it concise, persuasive, and ready to publish.
   `.trim();
 
-    generate(finalPrompt);
+    generate(finalPrompt, prompt.trim());
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-gray-100 flex-1 flex flex-col">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-gray-100 flex-1 flex flex-col">
       <h2 className="text-[20px] font-bold text-gray-900 mb-6 flex items-center gap-2">
         <Sparkles size={20} className="text-[#5044E5]" />
         Generator Settings
