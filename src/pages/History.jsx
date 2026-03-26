@@ -4,6 +4,7 @@ import Footer from "../components/common/Footer";
 import Container from "../components/common/Container";
 import { Toaster } from "../../utils/Toaster";
 import { Clock, Search, Trash2, FileText, Copy } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const History = () => {
   const [history, setHistory] = useState([]);
@@ -133,12 +134,12 @@ const History = () => {
                     generator.
                   </p>
                 </div>
-                <a
-                  href="/generator"
+                <Link
+                  to="/generator"
                   className="mt-2 px-6 py-3 bg-[#5044E5] text-white text-[14px] font-semibold rounded-xl hover:bg-[#4338ca] transition-all"
                 >
                   Go to Generator
-                </a>
+                </Link>
               </div>
             ) : filtered.length === 0 ? (
               /* No search results */
