@@ -134,7 +134,7 @@ const History = () => {
                   </p>
                 </div>
                 <a
-                  href="/dashboard"
+                  href="/generator"
                   className="mt-2 px-6 py-3 bg-[#5044E5] text-white text-[14px] font-semibold rounded-xl hover:bg-[#4338ca] transition-all"
                 >
                   Go to Generator
