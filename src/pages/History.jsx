@@ -205,7 +205,7 @@ const History = () => {
                       <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
                         Generated Copy
                       </span>
-                      <p className="mt-1 text-[14px] text-gray-700 leading-relaxed line-clamp-4 whitespace-pre-wrap">
+                      <p className="mt-1 text-[14px] text-gray-700 leading-relaxed whitespace-pre-wrap">
                         {item.result}
                       </p>
                     </div>
