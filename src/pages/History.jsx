@@ -159,7 +159,7 @@ const History = () => {
                     {/* Card Header */}
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center shrink-0">
                           <FileText size={15} className="text-[#5044E5]" />
                         </div>
                         <p className="text-[13px] text-gray-400 font-medium truncate">
