@@ -6,8 +6,8 @@ import GeneratorHero from '../components/generator/GeneratorHero';
 import GeneratorForm from '../components/generator/GeneratorForm';
 import GeneratorOutput from '../components/generator/GeneratorOutput';
 import useGemini from '../hooks/useGemini';
-import { Toaster } from '../../utils/Toaster';
 import InstructionNote from '../components/generator/InstructionNote';
+import { Toaster } from '../utils/Toaster';
 
 const Generator = () => {
   const { result, loading, error, generate } = useGemini();

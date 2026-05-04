@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
-import { Toaster } from "../../utils/Toaster.jsx";
+import { Toaster } from '../utils/Toaster';
 
 const DAILY_LIMIT = 10;
 
@@ -36,7 +36,7 @@ const useGemini = () => {
     try {
       const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
       const model = genAI.getGenerativeModel({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.5-flash-lite",
       });
 
       const response = await model.generateContent(fullPrompt);

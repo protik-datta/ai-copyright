@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Copy, FileText } from "lucide-react";
-import { Toaster } from "../../../utils/Toaster";
 import Container from '../common/Container';
+import { Toaster } from '../../utils/Toaster';
 
 const GeneratorOutput = ({ result, error, loading }) => {
   const toast = Toaster();

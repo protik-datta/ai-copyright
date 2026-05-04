@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import Container from "../components/common/Container";
-import { Toaster } from "../../utils/Toaster";
 import { Clock, Search, Trash2, FileText, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Toaster } from '../utils/Toaster';
 
 const History = () => {
   const [history, setHistory] = useState([]);

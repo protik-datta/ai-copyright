@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { ToastProvider } from "../utils/Toaster";
+import { ToastProvider } from './utils/Toaster';
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Generator = lazy(() => import("./pages/Generator"));

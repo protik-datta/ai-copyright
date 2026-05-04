@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../common/Container";
-import { Toaster } from "../../../utils/Toaster";
+import { Toaster } from '../../utils/Toaster';
 
 const Subscription = () => {
   const toast = Toaster()
